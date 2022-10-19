@@ -26,6 +26,7 @@ struct ProfileView: View {
             
             Spacer()
         }
+        .navigationBarHidden(true)
     }
 }
 
@@ -117,27 +118,7 @@ extension ProfileView {
             .font(.caption)
             .foregroundColor(.gray)
             
-            HStack(spacing: 16) {
-                HStack(spacing: 8) {
-                    Text("807")
-                        .font(.subheadline)
-                        .bold()
-                    
-                    Text("Following")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                }
-                
-                HStack(spacing: 8) {
-                    Text("19.4K")
-                        .font(.subheadline)
-                        .bold()
-                    
-                    Text("Followers")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                }
-            }
+            UserStatsView()
             .padding(.vertical)
         }
         .padding(.horizontal)

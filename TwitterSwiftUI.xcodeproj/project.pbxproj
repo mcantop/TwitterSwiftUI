@@ -21,8 +21,9 @@
 		52840F6E28FF4CC2007B781A /* TweetFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52840F6D28FF4CC2007B781A /* TweetFilterViewModel.swift */; };
 		52840F7328FF5A8C007B781A /* UserRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52840F7228FF5A8C007B781A /* UserRowView.swift */; };
 		52840F7828FF5D1B007B781A /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52840F7728FF5D1B007B781A /* SideMenuView.swift */; };
-		52840F7A28FF5D25007B781A /* SideMenuRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52840F7928FF5D25007B781A /* SideMenuRowView.swift */; };
 		52840F7D28FF5D39007B781A /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52840F7C28FF5D39007B781A /* SideMenuViewModel.swift */; };
+		52A58E1F28FF6CA4000072B2 /* UserStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A58E1E28FF6CA4000072B2 /* UserStatsView.swift */; };
+		52A58E2128FF7331000072B2 /* SideMenuOptionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A58E2028FF7331000072B2 /* SideMenuOptionRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,8 +42,9 @@
 		52840F6D28FF4CC2007B781A /* TweetFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetFilterViewModel.swift; sourceTree = "<group>"; };
 		52840F7228FF5A8C007B781A /* UserRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRowView.swift; sourceTree = "<group>"; };
 		52840F7728FF5D1B007B781A /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
-		52840F7928FF5D25007B781A /* SideMenuRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuRowView.swift; sourceTree = "<group>"; };
 		52840F7C28FF5D39007B781A /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
+		52A58E1E28FF6CA4000072B2 /* UserStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatsView.swift; sourceTree = "<group>"; };
+		52A58E2028FF7331000072B2 /* SideMenuOptionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOptionRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				52840F7228FF5A8C007B781A /* UserRowView.swift */,
+				52A58E1E28FF6CA4000072B2 /* UserStatsView.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -274,7 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				52840F7728FF5D1B007B781A /* SideMenuView.swift */,
-				52840F7928FF5D25007B781A /* SideMenuRowView.swift */,
+				52A58E2028FF7331000072B2 /* SideMenuOptionRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -352,7 +355,6 @@
 				52840F6828FF4401007B781A /* MessagesView.swift in Sources */,
 				52840F6C28FF4571007B781A /* ProfileView.swift in Sources */,
 				52840F4328FF3B61007B781A /* ContentView.swift in Sources */,
-				52840F7A28FF5D25007B781A /* SideMenuRowView.swift in Sources */,
 				52840F5B28FF3CD6007B781A /* TweetRowView.swift in Sources */,
 				52840F6E28FF4CC2007B781A /* TweetFilterViewModel.swift in Sources */,
 				52840F5828FF3C13007B781A /* FeedView.swift in Sources */,
@@ -360,9 +362,11 @@
 				52840F4128FF3B61007B781A /* TwitterSwiftUIApp.swift in Sources */,
 				52840F6428FF43D9007B781A /* ExploreView.swift in Sources */,
 				52840F7D28FF5D39007B781A /* SideMenuViewModel.swift in Sources */,
+				52A58E2128FF7331000072B2 /* SideMenuOptionRowView.swift in Sources */,
 				52840F7328FF5A8C007B781A /* UserRowView.swift in Sources */,
 				52840F5E28FF42E2007B781A /* MainTabView.swift in Sources */,
 				52840F6628FF43EF007B781A /* NotificationsView.swift in Sources */,
+				52A58E1F28FF6CA4000072B2 /* UserStatsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
