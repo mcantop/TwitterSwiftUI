@@ -36,7 +36,7 @@ struct NewTweetView: View {
                         .clipShape(Capsule())
                 }
             }
-            .padding()
+            .padding(.horizontal)
             
             HStack(alignment: .top) {
                 Circle()
@@ -44,7 +44,7 @@ struct NewTweetView: View {
                 
                 TextArea("What's happening?", text: $caption)
             }
-            .padding()
+            .padding(.horizontal)
         }
     }
 }

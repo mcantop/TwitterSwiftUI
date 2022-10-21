@@ -11,7 +11,7 @@ struct TweetRowView: View {
     var body: some View {
         VStack(alignment: .leading) {
             // MARK: - Profile image + user info + sheet
-            HStack(alignment: .top, spacing: 12) {
+            HStack(alignment: .center, spacing: 12) {
                 Circle()
                     .frame(width: 56, height: 56)
                     .foregroundColor(.blue)
@@ -50,15 +50,17 @@ struct TweetRowView: View {
                 TweetButton(image: "bookmark", action: messageButton)
             }
             .foregroundColor(.gray)
-            .padding()
+            .padding(.vertical, 4)
+            .padding(.horizontal, 16)
             
             Divider()
         }
-        .padding()
+        .padding(.horizontal)
+        .padding(.top, 4)
     }
     
     private func messageButton() {
-        print("lol")
+        print("button click")
     }
 }
 

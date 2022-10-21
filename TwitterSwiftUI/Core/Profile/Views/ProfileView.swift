@@ -26,7 +26,22 @@ struct ProfileView: View {
             
             Spacer()
         }
-        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    HStack {
+                        Image(systemName: "chevron.left")
+                        
+                        Text("Back")
+                    }
+                    .foregroundColor(.white)
+                    .fontWeight(.semibold)
+                }
+            }
+        }
     }
 }
 
@@ -42,23 +57,11 @@ extension ProfileView {
             Color(.systemBlue)
                 .ignoresSafeArea()
             
-            VStack {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "arrow.left")
-                        .resizable()
-                        .frame(width: 20, height: 16)
-                        .foregroundColor(.white)
-                        .offset(x: 16, y: 0)
-                }
-                
-                Circle()
-                    .frame(width: 72, height: 72)
-                    .offset(x: 16, y: 36)
-            }
+            Circle()
+                .frame(width: 72, height: 72)
+                .offset(x: 16, y: 36)
         }
-        .frame(height: 120)
+        .frame(height: 60)
     }
     
     var actionButtons: some View {
@@ -68,10 +71,12 @@ extension ProfileView {
             Image(systemName: "bell.badge")
                 .font(.title3)
                 .padding(6)
+                .background(.white)
                 .overlay(
                     Circle()
                         .stroke(.gray, lineWidth: 0.75)
                 )
+                .cornerRadius(20)
             
             Button {
                 //
@@ -81,13 +86,17 @@ extension ProfileView {
                     .bold()
                     .frame(width: 120, height: 32)
                     .foregroundColor(.black)
+                    .background(.white)
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
                             .stroke(.gray, lineWidth: 0.75)
                     )
+                    .cornerRadius(20)
             }
             
         }
+        .offset(x: 0, y: -20)
+        .zIndex(1)
         .padding(.trailing)
     }
     
@@ -119,7 +128,7 @@ extension ProfileView {
             .foregroundColor(.gray)
             
             UserStatsView()
-            .padding(.vertical)
+                .padding(.vertical)
         }
         .padding(.horizontal)
     }
@@ -152,8 +161,8 @@ extension ProfileView {
             }
         }
         .overlay(
-        Divider()
-            .offset(x: 0, y: 15)
+            Divider()
+                .offset(x: 0, y: 15)
         )
     }
     

@@ -43,6 +43,7 @@ struct ContentView: View {
                 } label: {
                     Circle()
                         .frame(width: 32, height: 32)
+                        .padding(.leading, 12)
                 }
 
             }
