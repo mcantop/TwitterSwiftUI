@@ -6,11 +6,32 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
     @State private var showingMenu = false
     
     var body: some View {
+        Group {
+            // No user logged in.
+            if viewModel.userSession == nil {
+                LoginView()
+            } else {
+                mainInterfaceView
+            }
+        }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+
+extension ContentView {
+    var mainInterfaceView: some View {
         ZStack(alignment: .topLeading) {
             MainTabView()
                 .navigationBarHidden(showingMenu)
@@ -41,21 +62,27 @@ struct ContentView: View {
                         showingMenu.toggle()
                     }
                 } label: {
-                    Circle()
-                        .frame(width: 32, height: 32)
-                        .padding(.leading, 12)
+                    
+                    if let user = viewModel.currentUser {
+                    Button {
+                        withAnimation(.easeInOut) {
+                            showingMenu.toggle()
+                        }
+                    } label: {
+                            KFImage(URL(string: user.profilePhotoUrl))
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 32, height: 32)
+                                .clipShape(Circle())
+                                
+                        }
+                    .padding(.leading, 12)
+                    }
                 }
-
             }
         }
         .onAppear {
             showingMenu = false
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }

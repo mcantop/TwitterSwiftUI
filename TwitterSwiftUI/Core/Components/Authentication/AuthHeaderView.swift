@@ -22,7 +22,7 @@ struct AuthHeaderView: View {
         .foregroundColor(.white)
         .frame(height: 260)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.leading)
+        .padding(.horizontal, 32)
         .background(.blue)
         .clipShape(RoundedShape(corners: [.bottomRight]))
     }

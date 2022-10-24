@@ -6,24 +6,40 @@
 //
 
 import SwiftUI
+import Kingfisher
+import Firebase
 
 struct TweetRowView: View {
+    @ObservedObject var viewModel: TweetRowViewModel
+    
+    init(tweet: Tweet) {
+        self.viewModel = TweetRowViewModel(tweet: tweet)
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             // MARK: - Profile image + user info + sheet
-            HStack(alignment: .center, spacing: 12) {
-                Circle()
-                    .frame(width: 56, height: 56)
-                    .foregroundColor(.blue)
+            HStack(alignment: .top, spacing: 12) {
+                if let user = viewModel.tweet.user {
+                    KFImage(URL(string: user.profilePhotoUrl))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 56, height: 56)
+                        .clipShape(Circle())
+                } else {
+                    Circle()
+                        .frame(width: 56, height: 56)
+                        .foregroundColor(.blue)
+                }
                 
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
                         // MARK: - User info
-                        Text("Bruce Wayne")
+                        Text(viewModel.tweet.user?.fullname ?? "Fullname")
                             .font(.subheadline)
                             .bold()
                         
-                        Text("@batman")
+                        Text("@\(viewModel.tweet.user?.username ?? "username")")
                             .foregroundColor(.gray)
                             .font(.caption)
                         
@@ -33,7 +49,7 @@ struct TweetRowView: View {
                     }
                     
                     // MARK: - Tweet caption
-                    Text("I believe in Harvey Dent")
+                    Text(viewModel.tweet.caption)
                         .font(.subheadline)
                         .multilineTextAlignment(.leading)
                 }
@@ -45,7 +61,17 @@ struct TweetRowView: View {
                 Spacer()
                 TweetButton(image: "arrow.2.squarepath", action: messageButton)
                 Spacer()
-                TweetButton(image: "heart", action: messageButton)
+                
+                Button {
+                    viewModel.tweet.didLike ?? false ?
+                    viewModel.unlikeTweet() :
+                    viewModel.likeTweet()
+                } label: {
+                    Image(systemName: viewModel.tweet.didLike ?? false ? "heart.fill" : "heart")
+                        .font(.subheadline)
+                        .foregroundColor(viewModel.tweet.didLike ?? false ? .red : .gray)
+                }
+                
                 Spacer()
                 TweetButton(image: "bookmark", action: messageButton)
             }
@@ -81,6 +107,6 @@ struct TweetButton: View {
 
 struct TweetRowView_Previews: PreviewProvider {
     static var previews: some View {
-        TweetRowView()
+        TweetRowView(tweet: Tweet(caption: "caption", timestamp: Timestamp(date: Date()), uid: "89318", likes: 2))
     }
 }
